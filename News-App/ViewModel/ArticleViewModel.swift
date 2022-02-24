@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArticleViewModel {
+struct ArticleViewModel: ArticleViewModelType {
 	
 	private let article: Article
 	

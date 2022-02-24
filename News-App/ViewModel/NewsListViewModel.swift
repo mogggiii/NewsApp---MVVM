@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewsListViewModel {
+struct NewsListViewModel: NewsListViewModelType {
 	
 	var articles: [Article]
 	
@@ -15,7 +15,7 @@ struct NewsListViewModel {
 		return self.articles.count
 	}
 	
-	func articleAtIndex(_ index: Int) -> ArticleViewModel {
+	func articleAtIndex(_ index: Int) -> ArticleViewModelType {
 		let article = articles[index]
 		
 		return ArticleViewModel(article: article)

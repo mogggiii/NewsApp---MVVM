@@ -67,7 +67,7 @@ class NewsTableViewCell: UITableViewCell {
 	}
 	
 	//MARK: - Configure Cell
-	func configure(with viewModel: ArticleViewModel) {
+	func configure(with viewModel: ArticleViewModelType) {
 		
 		titleLabel.text = viewModel.title
 		subtitleLabel.text = viewModel.description

@@ -10,7 +10,7 @@ import UIKit
 class NewsViewController: UITableViewController {
 	
 	private let cellId = "cell"
-	private var viewModel: NewsListViewModel?
+	private var viewModel: NewsListViewModelType?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -36,19 +36,19 @@ class NewsViewController: UITableViewController {
 			}
 		}
 	}
-
-	//MARK: - Table View Data Source 
+	
+	//MARK: - Table View Data Source
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-	viewModel?.numberOfRows() ?? 0
-}
-
-override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-	guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? NewsTableViewCell else { fatalError("TableViewCell no found") }
-	
-	let newsListVM = (self.viewModel?.articleAtIndex(indexPath.row))!
-	
-	cell.configure(with: newsListVM)
-	return cell
-	
-		}
+		viewModel?.numberOfRows() ?? 0
 	}
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? NewsTableViewCell else { fatalError("TableViewCell no found") }
+		
+		let newsListVM = (self.viewModel?.articleAtIndex(indexPath.row))!
+		
+		cell.configure(with: newsListVM)
+		return cell
+		
+	}
+}
