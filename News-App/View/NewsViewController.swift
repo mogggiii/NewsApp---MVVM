@@ -9,6 +9,15 @@ import UIKit
 
 class NewsViewController: UITableViewController {
 	
+	lazy var activitiIndicator: UIActivityIndicatorView = {
+		let indicator = UIActivityIndicatorView()
+		indicator.backgroundColor = .systemBackground
+		indicator.frame = CGRect(x: 0.0, y: 0.0, width: 70.0, height: 70.0)
+		indicator.style = .large
+		indicator.hidesWhenStopped = true
+		return indicator
+	}()
+	
 	private let cellId = "cell"
 	private var viewModel: NewsListViewModelType?
 	
@@ -19,20 +28,26 @@ class NewsViewController: UITableViewController {
 		navigationController?.navigationBar.prefersLargeTitles = true
 		
 		tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: cellId)
+		tableView.backgroundView = activitiIndicator
+		
+		activitiIndicator.startAnimating()
 		
 		fetchNews()
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+			super.viewWillAppear(animated)
+			activitiIndicator.center = self.view.center
+	}
+	
+	//MARK: - Private Methods
 	private func fetchNews() {
-		APICaller.shared.getTopStories { [weak self] result in
-			switch result {
-			case .success(let articles):
-				self?.viewModel = NewsListViewModel(articles: articles)
-				DispatchQueue.main.async {
-					self?.tableView.reloadData()
-				}
-			case .failure(let error):
-				print(error)
+		
+		AlamofireNetworkManager.shared.getTopStories { articles, error in
+			self.viewModel = NewsListViewModel(articles: articles ?? [])
+			DispatchQueue.main.async {
+				self.tableView.reloadData()
+				self.activitiIndicator.stopAnimating()
 			}
 		}
 	}
