@@ -8,10 +8,11 @@
 import Foundation
 import Alamofire
 
-class AlamofireNetworkManager {
+final class AlamofireNetworkManager {
 	
 	static let shared = AlamofireNetworkManager()
 	
+	//MARK: - Get News
 	public func getTopStories(completion: @escaping([Article]?, Error?) -> Void) {
 		guard let url = APICaller.url else { return }
 		
@@ -24,7 +25,23 @@ class AlamofireNetworkManager {
 				completion(nil, error)
 			}
 		}
+	}
+	
+	//MARK: - Get Image
+	public func fetchImage(url: URL?, completion: @escaping(UIImage?) -> ()) {
 		
+		guard let url = url else { return }
+		
+		AF.request(url).responseData { response in
+			switch response.result {
+			case .success(let data):
+				DispatchQueue.global().async {
+					completion(UIImage(data: data))
+				}
+			case .failure(_):
+				completion(UIImage(named: "placeholder"))
+			}
+		}
 	}
 	
 }

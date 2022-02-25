@@ -9,7 +9,7 @@ import UIKit
 
 class NewsTableViewCell: UITableViewCell {
 	
-	let titleLabel: UILabel = {
+	lazy var titleLabel: UILabel = {
 		let label = UILabel()
 		label.numberOfLines = 0
 		label.font = .systemFont(ofSize: 22, weight: .bold)
@@ -17,7 +17,7 @@ class NewsTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let subtitleLabel: UILabel = {
+	lazy var subtitleLabel: UILabel = {
 		let label = UILabel()
 		label.numberOfLines = 0
 		label.font = .systemFont(ofSize: 15, weight: .light)
@@ -25,7 +25,7 @@ class NewsTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let newsImageView: UIImageView = {
+	lazy var newsImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.clipsToBounds = true
 		imageView.layer.masksToBounds = true
@@ -40,9 +40,9 @@ class NewsTableViewCell: UITableViewCell {
 		
 		contentView.addSubview(titleLabel)
 		contentView.addSubview(subtitleLabel)
-//		contentView.addSubview(newsImageView)
+		contentView.addSubview(newsImageView)
 		makeConstraints()
-	
+		
 	}
 	
 	required init?(coder: NSCoder) {
@@ -51,19 +51,27 @@ class NewsTableViewCell: UITableViewCell {
 	
 	//MARK: - Private Methods
 	private func makeConstraints() {
-		
+	
 		NSLayoutConstraint.activate([
-			titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
-			titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-			titleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -30),
 			
+			//			Image View Constraints
+			newsImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
+			newsImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
+			newsImageView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, constant: -20),
+			newsImageView.heightAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.5),
+			
+			//Title Constraints
+			titleLabel.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 16),
+			titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
+			titleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
+			
+			//Descrciption Constraints
 			subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
 			subtitleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
 			subtitleLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -20),
-			subtitleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -30),
+			subtitleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
+			
 		])
-		
-		
 	}
 	
 	//MARK: - Configure Cell
@@ -72,19 +80,13 @@ class NewsTableViewCell: UITableViewCell {
 		titleLabel.text = viewModel.title
 		subtitleLabel.text = viewModel.description
 		
-//		if let data = viewModel.imageData {
-//			newsImageView.image = UIImage(data: data)
-//		} else if let url = viewModel.imageURL {
-//			URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-//
-//				guard let data = data, error == nil else { return }
-//
-//				viewModel.imageData = data
-//				DispatchQueue.main.async {
-//					self?.newsImageView.image = UIImage(data: data)
-//				}
-//			} .resume()
-//		}
+		guard let imageUrl = viewModel.imageURL else { return }
+		
+		AlamofireNetworkManager.shared.fetchImage(url: imageUrl) { [weak self] image in
+			DispatchQueue.main.async {
+				self?.newsImageView.image = image
+			}
+		}
 	}
 	
 }

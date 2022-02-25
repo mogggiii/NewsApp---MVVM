@@ -26,7 +26,7 @@ class NewsViewController: UITableViewController {
 		
 		title = "News"
 		navigationController?.navigationBar.prefersLargeTitles = true
-		
+
 		tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: cellId)
 		tableView.backgroundView = activitiIndicator
 		
@@ -42,7 +42,6 @@ class NewsViewController: UITableViewController {
 	
 	//MARK: - Private Methods
 	private func fetchNews() {
-		
 		AlamofireNetworkManager.shared.getTopStories { articles, error in
 			self.viewModel = NewsListViewModel(articles: articles ?? [])
 			DispatchQueue.main.async {
@@ -51,7 +50,7 @@ class NewsViewController: UITableViewController {
 			}
 		}
 	}
-	
+
 	//MARK: - Table View Data Source
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		viewModel?.numberOfRows() ?? 0
@@ -64,6 +63,6 @@ class NewsViewController: UITableViewController {
 		
 		cell.configure(with: newsListVM)
 		return cell
-		
 	}
+	
 }

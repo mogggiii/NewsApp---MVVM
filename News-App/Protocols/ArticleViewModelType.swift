@@ -10,4 +10,5 @@ import Foundation
 protocol ArticleViewModelType {
 	var title: String { get }
 	var description: String { get }
+	var imageURL: URL? { get }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ArticleViewModel: ArticleViewModelType {
 	
@@ -17,6 +18,11 @@ struct ArticleViewModel: ArticleViewModelType {
 	
 	var description: String {
 		return article.description ?? "No Description"
+	}
+	
+	var imageURL: URL? {
+		let imageUrl = URL(string: article.urlToImage ?? "NO")
+		return imageUrl
 	}
 	
 	init(article: Article) {
