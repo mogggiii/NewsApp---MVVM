@@ -5,7 +5,9 @@
 //  Created by mogggiii on 23.02.2022.
 //
 
-import Foundation
+//import Foundation
+import SafariServices
+import UIKit
 
 struct NewsListViewModel: NewsListViewModelType {
 	
@@ -21,9 +23,13 @@ struct NewsListViewModel: NewsListViewModelType {
 		return ArticleViewModel(article: article)
 	}
 	
-	func selectRow(atIndexPath indexPath: IndexPath) {
-		print("no")
+	func didSelectArticle(_ index: Int) -> Article {
+		let article = articles[index]
+
+		return article
+		
 	}
+	
 	
 	
 

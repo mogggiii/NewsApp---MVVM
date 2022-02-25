@@ -12,7 +12,6 @@
 		CE21CDFC27C76EC0006EC49F /* ArticleViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21CDFB27C76EC0006EC49F /* ArticleViewModelType.swift */; };
 		CE21CDFE27C76EFB006EC49F /* NewsListViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21CDFD27C76EFB006EC49F /* NewsListViewModelType.swift */; };
 		CE21CE0027C78E1E006EC49F /* AlamofireNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21CDFF27C78E1E006EC49F /* AlamofireNetworkManager.swift */; };
-		CE21CE0227C7B20E006EC49F /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21CE0127C7B20D006EC49F /* URLSession.swift */; };
 		CE6A912427C628AF005030D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A912327C628AF005030D7 /* AppDelegate.swift */; };
 		CE6A912627C628AF005030D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A912527C628AF005030D7 /* SceneDelegate.swift */; };
 		CE6A912B27C628AF005030D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6A912927C628AF005030D7 /* Main.storyboard */; };
@@ -33,7 +32,6 @@
 		CE21CDFB27C76EC0006EC49F /* ArticleViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModelType.swift; sourceTree = "<group>"; };
 		CE21CDFD27C76EFB006EC49F /* NewsListViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModelType.swift; sourceTree = "<group>"; };
 		CE21CDFF27C78E1E006EC49F /* AlamofireNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkManager.swift; sourceTree = "<group>"; };
-		CE21CE0127C7B20D006EC49F /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		CE6A912027C628AF005030D7 /* News-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6A912327C628AF005030D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6A912527C628AF005030D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				CE6A913127C628B5005030D7 /* Info.plist */,
 				CE6A913C27C62A2A005030D7 /* APICaller.swift */,
 				CE21CDFF27C78E1E006EC49F /* AlamofireNetworkManager.swift */,
-				CE21CE0127C7B20D006EC49F /* URLSession.swift */,
 			);
 			path = "News-App";
 			sourceTree = "<group>";
@@ -267,7 +264,6 @@
 			files = (
 				CE21CE0027C78E1E006EC49F /* AlamofireNetworkManager.swift in Sources */,
 				CE896E1727C67D3C007EB9D5 /* NewsListViewModel.swift in Sources */,
-				CE21CE0227C7B20E006EC49F /* URLSession.swift in Sources */,
 				CE21CDFC27C76EC0006EC49F /* ArticleViewModelType.swift in Sources */,
 				CE6A913B27C6293D005030D7 /* NewsModel.swift in Sources */,
 				CE21CDFE27C76EFB006EC49F /* NewsListViewModelType.swift in Sources */,

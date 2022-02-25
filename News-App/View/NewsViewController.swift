@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class NewsViewController: UITableViewController {
 	
@@ -63,6 +64,16 @@ class NewsViewController: UITableViewController {
 		
 		cell.configure(with: newsListVM)
 		return cell
+	}
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let article = viewModel?.didSelectArticle(indexPath.row)
+		
+		guard let url = URL(string: article?.url ?? "NO") else { return }
+		
+		let safariVC = SFSafariViewController(url: url)
+		present(safariVC, animated: true)
+		
 	}
 	
 }

@@ -27,22 +27,5 @@ final class AlamofireNetworkManager {
 		}
 	}
 	
-	//MARK: - Get Image
-	public func fetchImage(url: URL?, completion: @escaping(UIImage?) -> ()) {
-		
-		guard let url = url else { return }
-		
-		AF.request(url).responseData { response in
-			switch response.result {
-			case .success(let data):
-				DispatchQueue.global().async {
-					completion(UIImage(data: data))
-				}
-			case .failure(_):
-				completion(UIImage(named: "placeholder"))
-			}
-		}
-	}
-	
 }
 

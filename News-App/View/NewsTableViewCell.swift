@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsTableViewCell: UITableViewCell {
 	
@@ -82,11 +83,7 @@ class NewsTableViewCell: UITableViewCell {
 		
 		guard let imageUrl = viewModel.imageURL else { return }
 		
-		AlamofireNetworkManager.shared.fetchImage(url: imageUrl) { [weak self] image in
-			DispatchQueue.main.async {
-				self?.newsImageView.image = image
-			}
-		}
+		newsImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "placeholder"), options: [.continueInBackground])
 	}
 	
 }
