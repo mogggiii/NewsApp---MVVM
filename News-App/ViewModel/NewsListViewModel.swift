@@ -19,18 +19,12 @@ struct NewsListViewModel: NewsListViewModelType {
 	
 	func articleAtIndex(_ index: Int) -> ArticleViewModelType {
 		let article = articles[index]
-		
 		return ArticleViewModel(article: article)
 	}
 	
 	func didSelectArticle(_ index: Int) -> Article {
 		let article = articles[index]
-
 		return article
-		
 	}
-	
-	
-	
 
 }

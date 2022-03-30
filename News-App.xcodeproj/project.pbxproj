@@ -14,7 +14,6 @@
 		CE21CE0027C78E1E006EC49F /* AlamofireNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21CDFF27C78E1E006EC49F /* AlamofireNetworkManager.swift */; };
 		CE6A912427C628AF005030D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A912327C628AF005030D7 /* AppDelegate.swift */; };
 		CE6A912627C628AF005030D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A912527C628AF005030D7 /* SceneDelegate.swift */; };
-		CE6A912B27C628AF005030D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6A912927C628AF005030D7 /* Main.storyboard */; };
 		CE6A912D27C628B5005030D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6A912C27C628B5005030D7 /* Assets.xcassets */; };
 		CE6A913027C628B5005030D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6A912E27C628B5005030D7 /* LaunchScreen.storyboard */; };
 		CE6A913B27C6293D005030D7 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A913A27C6293D005030D7 /* NewsModel.swift */; };
@@ -35,7 +34,6 @@
 		CE6A912027C628AF005030D7 /* News-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6A912327C628AF005030D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6A912527C628AF005030D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE6A912A27C628AF005030D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE6A912C27C628B5005030D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE6A912F27C628B5005030D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE6A913127C628B5005030D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +73,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE0AA51227F4A8FF00FFD146 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				CE6A913C27C62A2A005030D7 /* APICaller.swift */,
+				CE21CDFF27C78E1E006EC49F /* AlamofireNetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
 		CE21CDFA27C76E9E006EC49F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,18 +112,14 @@
 		CE6A912227C628AF005030D7 /* News-App */ = {
 			isa = PBXGroup;
 			children = (
+				CE0AA51227F4A8FF00FFD146 /* NetworkManager */,
 				CE21CDFA27C76E9E006EC49F /* Protocols */,
 				CE6A913727C6290A005030D7 /* Model */,
 				CE6A913927C62925005030D7 /* View */,
 				CE6A913827C62911005030D7 /* ViewModel */,
 				CE6A912327C628AF005030D7 /* AppDelegate.swift */,
 				CE6A912527C628AF005030D7 /* SceneDelegate.swift */,
-				CE6A912927C628AF005030D7 /* Main.storyboard */,
-				CE6A912C27C628B5005030D7 /* Assets.xcassets */,
-				CE6A912E27C628B5005030D7 /* LaunchScreen.storyboard */,
 				CE6A913127C628B5005030D7 /* Info.plist */,
-				CE6A913C27C62A2A005030D7 /* APICaller.swift */,
-				CE21CDFF27C78E1E006EC49F /* AlamofireNetworkManager.swift */,
 			);
 			path = "News-App";
 			sourceTree = "<group>";
@@ -141,6 +144,8 @@
 		CE6A913927C62925005030D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE6A912C27C628B5005030D7 /* Assets.xcassets */,
+				CE6A912E27C628B5005030D7 /* LaunchScreen.storyboard */,
 				CE6A913E27C62C5E005030D7 /* NewsViewController.swift */,
 				CE6A914027C62CA3005030D7 /* NewsTableViewCell.swift */,
 			);
@@ -209,7 +214,6 @@
 			files = (
 				CE6A913027C628B5005030D7 /* LaunchScreen.storyboard in Resources */,
 				CE6A912D27C628B5005030D7 /* Assets.xcassets in Resources */,
-				CE6A912B27C628AF005030D7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,14 +283,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE6A912927C628AF005030D7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE6A912A27C628AF005030D7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE6A912E27C628B5005030D7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
